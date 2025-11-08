@@ -1,0 +1,13 @@
+[core]
+  editor = nvim
+[user]
+	name = DevM4rco
+	email = devm4rco@gmail.com
+[color]
+  ui = auto
+[alias]
+  st = status
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
