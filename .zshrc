@@ -99,12 +99,6 @@ export FZF_DEFAULT_OPTS="
 # zoxide
 eval "$(zoxide init zsh)"
 
-# SSH Agent (após P10k)
-if [[ -z "$SSH_AUTH_SOCK" ]]; then
-  eval "$(ssh-agent -s)" >/dev/null 2>&1
-  ssh-add ~/.ssh/id_ed25519 >/dev/null 2>&1
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
