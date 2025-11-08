@@ -1,6 +1,6 @@
 customCommands:
   - key: "C"
-    command: "cz commit"
+    command: "git cz"
     description: "commit with commitizen"
     context: "files"
     output: terminal
