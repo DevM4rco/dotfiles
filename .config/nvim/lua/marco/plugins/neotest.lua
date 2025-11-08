@@ -16,13 +16,14 @@ return {
 	},
 	keys = {
 		{
-			'n',
+			'<leader>tr',
 			'<cmd>Neotest run<CR>',
-			'Run test',
+			desc = 'Run test',
 		},
 		{
+			'<leader>ts',
 			'<cmd>Neotest summary<CR>',
-			'See tests',
+			desc = 'See tests',
 		},
 	},
 }
