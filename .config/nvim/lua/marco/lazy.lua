@@ -24,6 +24,13 @@ require('lazy').setup {
 			opts = true,
 			ft = { '*' },
 		},
+		{
+			'rest-nvim/rest.nvim',
+			dependencies = 'nvim-treesitter/nvim-treesitter',
+			config = function()
+				vim.g.rest_nvim = {}
+			end,
+		},
 	},
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
