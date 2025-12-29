@@ -25,6 +25,7 @@ return {
 				'tailwindcss',
 				'ts_ls',
 				'astro',
+				'vue_ls',
 				'emmet_ls',
 				'intelephense',
 				'jsonls',
