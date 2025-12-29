@@ -54,17 +54,6 @@ return {
 			end,
 		})
 
-		vim.lsp.config('ts_ls', {
-			capabilities = capabilities,
-			filetypes = {
-				'typescript',
-				'javascript',
-				'javascriptreact',
-				'typescriptreact',
-				'vue',
-			},
-		})
-
 		vim.lsp.config('lua_ls', {
 			capabilities = capabilities,
 			settings = {
