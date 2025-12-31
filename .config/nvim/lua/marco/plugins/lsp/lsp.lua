@@ -68,6 +68,27 @@ return {
 			},
 		})
 
+		vim.lsp.config('ts_ls', {
+			capabilities = capabilities,
+			init_options = {
+				plugins = {
+					{
+						name = '@vue/typescript-plugin',
+						location = vim.fn.stdpath 'data'
+							.. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+						languages = { 'vue' },
+					},
+				},
+			},
+			filetypes = {
+				'typescript',
+				'javascript',
+				'javascriptreact',
+				'typescriptreact',
+				'vue',
+			},
+		})
+
 		vim.lsp.config('jsonls', {
 			capabilities = capabilities,
 			settings = {

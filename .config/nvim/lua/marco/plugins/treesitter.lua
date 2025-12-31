@@ -21,6 +21,7 @@ return {
 				'typescript',
 				'tsx',
 				'astro',
+				'vue',
 				'php',
 				'json',
 				'json5',
