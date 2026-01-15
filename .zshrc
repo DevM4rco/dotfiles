@@ -141,3 +141,7 @@ fi
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
