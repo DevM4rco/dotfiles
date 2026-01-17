@@ -70,6 +70,7 @@ alias tree='eza --tree -a --level=3 --icons --git --ignore-glob "node_modules"'
 
 alias vite='bun c vite'
 alias next='bun c next-app@latest'
+alias rsbuild='bun c rsbuild@latest'
 alias pacman='sudo pacman'
 
 alias gem=gemini
