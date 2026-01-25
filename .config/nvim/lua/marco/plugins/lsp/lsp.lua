@@ -1,49 +1,50 @@
 return {
 	'neovim/nvim-lspconfig',
+	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
-		'hrsh7th/cmp-nvim-lsp',
-		'b0o/schemastore.nvim',
 		{
 			'folke/lazydev.nvim',
 			ft = 'lua',
 			opts = {
-				library = { { path = '${3rd}/luv/library', words = { 'vim%.uv' } } },
+				library = {
+					{ path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+				},
 			},
 		},
+		'saghen/blink.cmp',
+		'b0o/schemastore.nvim',
 	},
 	config = function()
-		local capabilities = require('cmp_nvim_lsp').default_capabilities()
+		local severity = vim.diagnostic.severity
+		local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 		vim.api.nvim_create_autocmd('LspAttach', {
-			group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+			group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
 			callback = function()
 				local map = function(mode, l, r, desc)
-					vim.keymap.set(mode, l, r, { desc = desc, silent = true })
+					vim.keymap.set(mode, l, r, { desc = desc, silent = true, noremap = true })
 				end
 
-				map('n', '<leader>gd', Snacks.picker.lsp_definitions, 'Show LSP definitions')
-				map('n', '<leader>gD', Snacks.picker.lsp_declarations, 'Show LSP declarations')
-				map('n', '<leader>gR', Snacks.picker.lsp_references, 'Show LSP references')
-				map('n', '<leader>gi', Snacks.picker.lsp_implementations, 'Show LSP implementations')
-				map('n', '<leader>gt', Snacks.picker.lsp_type_definitions, 'Show LSP type definitions')
-				map('n', '<leader>ca', vim.lsp.buf.code_action, 'See available code actions')
-				map('n', '<leader>rn', vim.lsp.buf.rename, 'Smart rename')
 				map('n', 'K', vim.lsp.buf.hover)
+				map('n', '<leader>rn', vim.lsp.buf.rename, 'Smart rename')
+				map('n', '<leader>rs', '<cmd>LspRestart<CR>', 'Restart LSP')
+				map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code actions')
+				map('n', '<leader>gD', Snacks.picker.lsp_definitions, 'Go to definitions')
+				map('n', '<leader>gd', Snacks.picker.lsp_declarations, 'Go to declarations')
+				map('n', '<leader>gi', Snacks.picker.lsp_implementations, 'Go to implementations')
+				map('n', '<leader>gt', Snacks.picker.lsp_type_definitions, 'Go to type definitions')
 			end,
 		})
 
 		vim.diagnostic.config {
 			signs = {
 				text = {
-					[vim.diagnostic.severity.ERROR] = ' ',
-					[vim.diagnostic.severity.WARN] = ' ',
-					[vim.diagnostic.severity.HINT] = '󰠠 ',
-					[vim.diagnostic.severity.INFO] = ' ',
+					[severity.ERROR] = ' ',
+					[severity.WARN] = ' ',
+					[severity.INFO] = ' ',
+					[severity.HINT] = ' ',
 				},
 			},
-			virtual_text = false,
-			underline = true,
-			update_in_insert = false,
 		}
 
 		vim.lsp.config('*', {
@@ -65,27 +66,6 @@ return {
 						callSnippet = 'Replace',
 					},
 				},
-			},
-		})
-
-		vim.lsp.config('ts_ls', {
-			capabilities = capabilities,
-			init_options = {
-				plugins = {
-					{
-						name = '@vue/typescript-plugin',
-						location = vim.fn.stdpath 'data'
-							.. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-						languages = { 'vue' },
-					},
-				},
-			},
-			filetypes = {
-				'typescript',
-				'javascript',
-				'javascriptreact',
-				'typescriptreact',
-				'vue',
 			},
 		})
 

@@ -1,68 +1,40 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	branch = 'master',
-	lazy = false,
 	build = ':TSUpdate',
+	branch = 'master',
 	dependencies = 'windwp/nvim-ts-autotag',
 	config = function()
-		require('nvim-treesitter.install').compilers = { 'gcc', 'clang' }
+		require('nvim-treesitter.install').compilers = { 'gcc', 'cc', 'clang' }
 
 		require('nvim-treesitter.configs').setup {
+			install_dir = vim.fn.stdpath 'data' .. '/site',
+			auto_install = true,
+			sync_install = true,
 			ignore_install = {},
-			sync_install = false,
 			modules = {},
-			auto_install = false,
-			highlight = { enable = true },
-			indent = { enable = true },
 			ensure_installed = {
 				'html',
 				'css',
 				'javascript',
 				'typescript',
 				'tsx',
-				'astro',
-				'vue',
-				'php',
-				'json',
-				'json5',
-				'http',
+				'yaml',
 				'prisma',
-				'markdown',
-				'git_config',
-				'gitignore',
 				'python',
-				'c',
-				'cpp',
-				'go',
-				'gomod',
-				'gosum',
-				'bash',
+				'json',
 				'lua',
-				'toml',
-				'vim',
 				'vimdoc',
+				'bash',
 			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = '<C-Space>',
-					node_incremental = '<C-Space>',
-					scope_incremental = false,
-					node_decremental = '<bs>',
-				},
-			},
+			highlight = { enable = true },
+			indent = { enable = true },
 		}
 
 		require('nvim-ts-autotag').setup {
 			opts = {
+				enable_close = true,
+				enable_rename = true,
 				enable_close_on_slash = true,
-			},
-			per_filetype = {
-				['php'] = {
-					enable_close = true,
-					enable_rename = true,
-					enable_close_on_slash = true,
-				},
 			},
 		}
 	end,

@@ -1,6 +1,6 @@
 return {
 	'nvim-mini/mini.nvim',
-	version = false,
+	version = '*',
 	config = function()
 		require('mini.icons').setup {
 			file = {
@@ -10,7 +10,7 @@ return {
 				['eslint.config.mjs'] = { glyph = '', hl = 'MiniIconsPurple' },
 				['.gitignore'] = { glyph = '󰊢', hl = 'MiniIconsRed' },
 				['tsconfig.json'] = { glyph = '', hl = 'MiniIconsBlue' },
-				['vite.config.ts'] = { glyph = '⚡', hl = 'MiniIconsYellow' },
+				['vite.config.ts'] = { glyph = '', hl = 'MiniIconsYellow' },
 			},
 			directory = {
 				routes = { glyph = '󰉒', hl = 'MiniIconsGreen' },
@@ -19,13 +19,14 @@ return {
 				assets = { glyph = '󰉏', hl = 'MiniIconsYellow' },
 			},
 		}
+		MiniIcons.mock_nvim_web_devicons()
+
+		require('mini.pairs').setup {
+			modes = { insert = false, command = true, terminal = true },
+		}
 
 		require('mini.splitjoin').setup {}
 
 		require('mini.surround').setup {}
-
-		require('mini.pairs').setup {
-			modes = { insert = false, terminal = true, command = true },
-		}
 	end,
 }

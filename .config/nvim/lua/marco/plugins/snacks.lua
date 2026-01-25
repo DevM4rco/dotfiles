@@ -3,46 +3,38 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
-		bigfile = { notify = true },
 		dashboard = {
 			preset = {
 				keys = {
-					{ icon = ' ', key = 'e', desc = 'Toggle file explorer', action = '<leader>e' },
-					{ icon = ' ', key = 'f', desc = 'Find files', action = '<leader>ff' },
-					{ icon = '󰱼 ', key = 's', desc = 'Find string', action = '<leader>fs' },
+					{ icon = ' ', key = 'e', desc = 'File explorer', action = '<leader>e' },
+					{ icon = ' ', key = 'f', desc = 'Find File', action = '<leader>ff' },
+					{ icon = '󰱼 ', key = 's', desc = 'Find String', action = '<leader>fs' },
+					{ icon = ' ', key = 'g', desc = 'LazyGit', action = '<leader>lg' },
+					{ icon = ' ', key = 'm', desc = 'Mason', action = '<cmd>Mason<CR>' },
 					{ icon = '󰒲 ', key = 'l', desc = 'Lazy', action = '<cmd>Lazy<CR>' },
-					{ icon = '󰈆 ', key = 'q', desc = 'Exit NVIM', action = '<cmd>qa<CR>' },
+					{ icon = ' ', key = 'q', desc = 'Quit', action = '<cmd>qa<CR>' },
 				},
+				--╔═╗
+				--║█║
+				--╚═╝
 				header = [[
-██████╗ ███████╗██╗   ██╗███╗   ███╗   ███╗ ██████╗  ██████╗ ██████╗
-██╔══██╗██╔════╝██║   ██║████╗ ████║  ████║ ██╔══██╗██╔════╝██╔═══██╗
-██║  ██║█████╗  ██║   ██║██╔████╔██║ ██╔██║ ██████╔╝██║     ██║   ██║
-██║  ██║██╔══╝  ╚██╗ ██╔╝██║╚██╔╝██║███████╗██╔══██╗██║     ██║   ██║
-██████╔╝███████╗ ╚████╔╝ ██║ ╚═╝ ██║╚═══██╔╝██║  ██║╚██████╗╚██████╔╝
-╚═════╝ ╚══════╝  ╚═══╝  ╚═╝     ╚═╝    ╚═╝ ╚═╝  ╚═╝ ╚═════╝ ╚═════╝]],
+██████╗ ███████╗██╗   ██╗███╗   ███╗   ████╗  ██████╗  ██████╗ ██████╗ 
+██╔══██╗██╔════╝██║   ██║████╗ ████║  ██╔██║  ██╔══██╗██╔════╝██╔═══██╗
+██║  ██║█████╗  ██║   ██║██╔████╔██║ ██╔╝██║  ██████╔╝██║     ██║   ██║
+██║  ██║██╔══╝  ╚██╗ ██╔╝██║╚██╔╝██║████████╗ ██╔══██╗██║     ██║   ██║
+██████╔╝███████╗ ╚████╔╝ ██║ ╚═╝ ██║╚════██╔╝ ██║  ██║╚██████╗╚██████╔╝
+╚═════╝ ╚══════╝  ╚═══╝  ╚═╝     ╚═╝     ╚═╝  ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
+        ]],
 			},
 			sections = {
 				{ section = 'header' },
+				{ pane = 2, section = 'terminal', cmd = 'colorscript -e square' },
 				{ section = 'keys', gap = 1, padding = 1 },
-				{
-					pane = 2,
-					section = 'terminal',
-					cmd = 'colorscript -e square',
-				},
-				{ pane = 2, icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
-			},
-		},
-		explorer = { enabled = true },
-		picker = {
-			layout = {
-				layout = { width = 32 },
-			},
-			exclude = { 'node_modules', '.git', '.venv', '.next', '.angular' },
-			sources = {
-				files = { hidden = true, ignored = true },
+				{ pane = 2, icon = ' ', title = 'Recent Files', section = 'recent_files' },
 			},
 		},
 		indent = {
+			enabled = true,
 			animate = {
 				style = 'down',
 				duration = { step = 15, total = 250 },
@@ -50,24 +42,27 @@ return {
 		},
 		input = { enabled = true },
 		lazygit = { enabled = true },
-		quickfile = { enabled = true },
+		picker = {
+			layout = {
+				layout = { width = 30 },
+			},
+			exclude = { 'node_modules', '.git', '.next', '.angular' },
+			sources = {
+				files = { hidden = true, ignored = true },
+			},
+		},
+		-- notifier = {
+		--   enabled = true,
+		--   timeout = 2500
+		-- },
+		-- notify = { enabled = true },
 		win = { enabled = true },
-		zen = { enabled = true },
 	},
 	keys = {
-		-- explorer
-		{
-			'<leader>e',
-			function()
-				Snacks.picker.explorer { hidden = true }
-			end,
-			desc = 'Toggle files explorer',
-		},
-		-- find
 		{
 			'<leader>ff',
 			function()
-				Snacks.picker.files { ignored = true }
+				Snacks.picker.files()
 			end,
 			desc = 'Find files',
 		},
@@ -78,29 +73,26 @@ return {
 			end,
 			desc = 'Find string',
 		},
-		-- lazygit
+		{
+			'<leader>e',
+			function()
+				Snacks.picker.explorer()
+			end,
+			desc = 'File explorer',
+		},
 		{
 			'<leader>lg',
 			function()
 				Snacks.lazygit()
 			end,
-			desc = 'Lazygit',
+			desc = 'LazyGit',
 		},
-		-- rename file
 		{
 			'<leader>rf',
 			function()
 				Snacks.rename.rename_file()
 			end,
-			desc = 'Rename File',
-		},
-		-- zen
-		{
-			'<leader>z',
-			function()
-				Snacks.zen()
-			end,
-			desc = 'Toggle zen mode',
+			desc = 'Rename file',
 		},
 	},
 }

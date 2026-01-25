@@ -4,6 +4,7 @@ return {
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	opts = function()
 		local highlights = require('catppuccin.special.bufferline').get_theme()
+
 		local opts = {
 			options = {
 				mode = 'tabs',
@@ -12,12 +13,14 @@ return {
 				always_show_bufferline = false,
 			},
 		}
+
 		return opts
 	end,
 	keys = {
 		{ '<leader>be', '<cmd>tabnew<CR>', desc = 'Open new tab' },
-		{ '<leader>bx', '<cmd>tabclose<CR>', desc = 'Close current tab' },
-		{ '<Tab>', '<cmd>BufferLineCycleNext<CR>' },
-		{ '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>' },
+		{ '<leader>bf', '<cmd>tabnew %<CR>', desc = 'Open current buffer in new tab' },
+		{ '<leader>bx', '<cmd>tablclose<CR>', desc = 'Close current tab' },
+		{ '<Tab>', '<cmd>BufferLineCycleNext<CR>', desc = 'Go to next tab' },
+		{ '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', desc = 'Go to previous tab' },
 	},
 }

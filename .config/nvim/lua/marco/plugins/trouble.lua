@@ -1,9 +1,8 @@
 return {
 	'folke/trouble.nvim',
-	cmd = 'Trouble',
 	opts = { focus = true },
 	keys = {
-		{ '<leader>xw', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Open trouble workspace diagnostics' },
+		{ '<leader>xw', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Open trouble workspace' },
 		{
 			'<leader>xd',
 			'<cmd>Trouble diagnostics toggle filter.buf=0<CR>',
