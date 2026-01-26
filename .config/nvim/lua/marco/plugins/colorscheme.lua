@@ -22,6 +22,7 @@ return {
 				noice = true,
 				notifier = true,
 				notify = true,
+				render_markdown = true,
 				snacks = {
 					enabled = true,
 					indent_scope_color = 'blue',
