@@ -48,14 +48,12 @@ return {
 			},
 			exclude = { 'node_modules', '.git', '.venv', '.next', '.angular' },
 			sources = {
+				explorer = {
+					hidden = true,
+				},
 				files = { hidden = true, ignored = true },
 			},
 		},
-		-- notifier = {
-		--   enabled = true,
-		--   timeout = 2500
-		-- },
-		-- notify = { enabled = true },
 		win = { enabled = true },
 	},
 	keys = {
