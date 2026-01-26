@@ -11,6 +11,7 @@ return {
 				typescript = { 'prettier' },
 				typescriptreact = { 'prettier' },
 				json = { 'prettier' },
+				jsonc = { 'prettier' },
 				yaml = { 'prettier' },
 				python = { 'black' },
 				lua = { 'stylua' },
