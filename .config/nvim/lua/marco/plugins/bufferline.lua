@@ -19,7 +19,7 @@ return {
 	keys = {
 		{ '<leader>be', '<cmd>tabnew<CR>', desc = 'Open new tab' },
 		{ '<leader>bf', '<cmd>tabnew %<CR>', desc = 'Open current buffer in new tab' },
-		{ '<leader>bx', '<cmd>tablclose<CR>', desc = 'Close current tab' },
+		{ '<leader>bx', '<cmd>tabclose<CR>', desc = 'Close current tab' },
 		{ '<Tab>', '<cmd>BufferLineCycleNext<CR>', desc = 'Go to next tab' },
 		{ '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', desc = 'Go to previous tab' },
 	},
