@@ -46,7 +46,7 @@ return {
 			layout = {
 				layout = { width = 30 },
 			},
-			exclude = { 'node_modules', '.git', '.venv', '.next', '.angular' },
+			exclude = { 'node_modules', '.git', '.venv', '.expo', '.next', '.angular' },
 			sources = {
 				explorer = {
 					hidden = true,
