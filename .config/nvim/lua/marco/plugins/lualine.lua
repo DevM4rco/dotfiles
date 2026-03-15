@@ -54,7 +54,7 @@ return {
 
 		require('lualine').setup {
 			options = {
-				theme = 'catppuccin',
+				theme = 'auto',
 				disabled_filetypes = { 'snacks_dashboard', 'snacks_explorer' },
 			},
 			sections = {
