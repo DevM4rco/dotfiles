@@ -23,11 +23,6 @@ return {
 		},
 	},
 	{
-		'bennypowers/template-literal-comments.nvim',
-		opts = true,
-		ft = { '*' },
-	},
-	{
 		'rest-nvim/rest.nvim',
 		dependencies = 'nvim-treesitter/nvim-treesitter',
 		config = function()
