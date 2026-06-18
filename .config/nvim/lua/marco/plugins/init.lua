@@ -24,7 +24,7 @@ return {
 	},
 	{
 		'rest-nvim/rest.nvim',
-		dependencies = 'nvim-treesitter/nvim-treesitter',
+		dependencies = 'romus204/tree-sitter-manager.nvim',
 		config = function()
 			vim.g.rest_nvim = {}
 		end,

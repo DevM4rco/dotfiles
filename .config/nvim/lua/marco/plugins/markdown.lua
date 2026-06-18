@@ -1,7 +1,7 @@
 return {
 	{
 		'MeanderingProgrammer/render-markdown.nvim',
-		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		dependencies = { 'romus204/tree-sitter-manager.nvim' },
 		opts = { latex = { enabled = false } },
 	},
 	{

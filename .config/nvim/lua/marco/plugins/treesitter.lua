@@ -1,16 +1,7 @@
 return {
-	'nvim-treesitter/nvim-treesitter',
-	build = ':TSUpdate',
-	branch = 'master',
+	'romus204/tree-sitter-manager.nvim',
 	config = function()
-		require('nvim-treesitter.install').compilers = { 'gcc', 'cc', 'clang' }
-
-		require('nvim-treesitter.configs').setup {
-			install_dir = vim.fn.stdpath 'data' .. '/site',
-			auto_install = false,
-			sync_install = true,
-			ignore_install = {},
-			modules = {},
+		require('tree-sitter-manager').setup {
 			ensure_installed = {
 				'html',
 				'css',
@@ -20,13 +11,17 @@ return {
 				'yaml',
 				'prisma',
 				'python',
-				'json',
 				'lua',
 				'vimdoc',
 				'bash',
+				'markdown',
+				'markdown_inline',
+				'http',
 			},
-			highlight = { enable = true },
-			indent = { enable = true },
+			auto_install = true,
+			border = 'rounded',
+			highlight = true,
+			nerdfont = true,
 		}
 	end,
 }
