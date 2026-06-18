@@ -2,7 +2,6 @@ return {
 	'nvim-treesitter/nvim-treesitter',
 	build = ':TSUpdate',
 	branch = 'master',
-	dependencies = 'windwp/nvim-ts-autotag',
 	config = function()
 		require('nvim-treesitter.install').compilers = { 'gcc', 'cc', 'clang' }
 
@@ -28,14 +27,6 @@ return {
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
-		}
-
-		require('nvim-ts-autotag').setup {
-			opts = {
-				enable_close = true,
-				enable_rename = true,
-				enable_close_on_slash = true,
-			},
 		}
 	end,
 }
