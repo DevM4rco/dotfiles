@@ -18,6 +18,7 @@ return {
 				lua = { 'stylua' },
 				c = { 'clang-format' },
 				bash = { 'shfmt' },
+				zsh = { 'shfmt' },
 			},
 			format_on_save = {
 				lsp_fallback = true,
