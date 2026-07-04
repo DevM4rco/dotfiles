@@ -27,7 +27,6 @@ return {
 
 				map('n', 'K', vim.lsp.buf.hover)
 				map('n', '<leader>rn', vim.lsp.buf.rename, 'Smart rename')
-				map('n', '<leader>rs', '<cmd>LspRestart<CR>', 'Restart LSP')
 				map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code actions')
 				map('n', '<leader>gD', Snacks.picker.lsp_definitions, 'Go to definitions')
 				map('n', '<leader>gd', Snacks.picker.lsp_declarations, 'Go to declarations')
