@@ -6,6 +6,7 @@ customCommands:
     output: terminal
 
 gui:
+  showIcons: true
   theme:
     activeBorderColor:
       - "#89b4fa"
