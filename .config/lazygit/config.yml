@@ -4,7 +4,6 @@ customCommands:
     description: "commit with commitizen"
     context: "files"
     output: terminal
-
 gui:
   showIcons: true
   theme:
@@ -27,5 +26,5 @@ gui:
       - "#cdd6f4"
     searchingActiveBorderColor:
       - "#f9e2af"
-  authorColors:
-    "*": "#b4befe"
+    authorColors:
+      "*": "#b4befe"
